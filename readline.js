@@ -17,6 +17,7 @@ var readLine = module.exports = function(file, opts) {
       emit = function spliceAndEmit(lineCount, byteCount) {
         try {
           var line = lineBuffer.slice(0, lineLength);
+          line = `ALL${line}`;
           self.emit('line', opts.retainBuffer? line : line.toString(), lineCount, byteCount);
         } catch (err) {
           self.emit('error', err);
